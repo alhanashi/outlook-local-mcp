@@ -20,15 +20,16 @@ This repository has two parts:
 | `list_events` | read | Calendar events for the next N days |
 | `create_draft` | draft | New email saved as an **unsent** draft and opened for review |
 | `create_reply_draft` | draft | Reply / reply-all saved as an **unsent** draft and opened for review |
+| `move_message` | organize | Move a message to another folder (e.g. an announcements folder) |
 
 ## What it cannot do (by design)
 
 - **Send** mail or invites
-- Delete, move, archive, or flag messages
+- Delete or flag messages, or move them to Deleted Items, Junk, Outbox or Sent
 - Change rules, accounts, or settings
 - Access the network
 
-Every draft is opened in Outlook so a human reviews it and presses **Send**.
+Every draft is saved in the account's Drafts folder and opened in Outlook so a human reviews it and presses **Send**.
 
 ## Security design
 

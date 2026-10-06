@@ -2,27 +2,63 @@
   "manifest_version": "0.3",
   "name": "outlook-local",
   "display_name": "Outlook (Local, Read + Drafts)",
-  "version": "1.0.1",
-  "description": "Read mail and calendar from Legacy Outlook for Mac and create drafts only. Cannot send, delete, or move mail.",
+  "version": "1.2.0",
+  "description": "Read mail and calendar from Legacy Outlook for Mac, create drafts, and move messages between folders. Cannot send or delete mail.",
   "long_description": "Local, dependency-free MCP server. Talks to Microsoft Outlook (Legacy Outlook) on this Mac through AppleScript, so it works with on-premises Exchange. No network access; no sending; drafts are opened for the user to review.",
-  "author": { "name": "outlook-local-mcp contributors" },
+  "author": {
+    "name": "outlook-local-mcp contributors"
+  },
   "server": {
     "type": "node",
     "entry_point": "server/index.js",
     "mcp_config": {
       "command": "node",
-      "args": ["${__dirname}/server/index.js"]
+      "args": [
+        "${__dirname}/server/index.js"
+      ]
     }
   },
   "tools": [
-    { "name": "list_folders", "description": "List mail folders with unread counts" },
-    { "name": "list_messages", "description": "List recent messages in a folder" },
-    { "name": "search_messages", "description": "Search messages by subject or sender" },
-    { "name": "get_message", "description": "Read one message" },
-    { "name": "list_events", "description": "List upcoming calendar events" },
-    { "name": "create_draft", "description": "Create a new unsent draft" },
-    { "name": "create_reply_draft", "description": "Create an unsent reply draft" }
+    {
+      "name": "list_folders",
+      "description": "List mail folders with unread counts"
+    },
+    {
+      "name": "list_messages",
+      "description": "List recent messages in a folder"
+    },
+    {
+      "name": "search_messages",
+      "description": "Search messages by subject or sender"
+    },
+    {
+      "name": "get_message",
+      "description": "Read one message"
+    },
+    {
+      "name": "list_events",
+      "description": "List upcoming calendar events"
+    },
+    {
+      "name": "create_draft",
+      "description": "Create a new unsent draft"
+    },
+    {
+      "name": "create_reply_draft",
+      "description": "Create an unsent reply draft"
+    },
+    {
+      "name": "move_message",
+      "description": "Move a message to another folder (never to Deleted, Junk, Outbox or Sent)"
+    }
   ],
-  "compatibility": { "platforms": ["darwin"], "runtimes": { "node": ">=18.0.0" } },
+  "compatibility": {
+    "platforms": [
+      "darwin"
+    ],
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  },
   "license": "MIT"
 }
