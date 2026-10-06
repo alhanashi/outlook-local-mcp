@@ -7,6 +7,8 @@
  * The API key is kept in this add-in's local storage on this device and is sent
  * only to https://api.anthropic.com.
  */
+// Older Outlook hosts (Exchange 2016/2019 OWA) require Office.initialize to be assigned.
+if (window.Office) { Office.initialize = function () {}; }
 (function () {
   'use strict';
 
