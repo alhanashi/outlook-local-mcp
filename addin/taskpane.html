@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>مساعد البريد</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <link rel="stylesheet" href="taskpane.css">
+</head>
+<body>
+  <header>
+    <h1>مساعد البريد</h1>
+    <button id="btn-settings" class="link" type="button">الإعدادات</button>
+  </header>
+
+  <section id="settings" hidden>
+    <label for="api-key">مفتاح Claude API</label>
+    <input id="api-key" type="password" autocomplete="off" spellcheck="false" placeholder="sk-ant-...">
+    <label for="model">النموذج</label>
+    <select id="model"><option value="">— احفظ المفتاح أولًا —</option></select>
+    <div class="row">
+      <button id="btn-save" type="button" class="primary">حفظ</button>
+      <button id="btn-clear" type="button">حذف المفتاح</button>
+    </div>
+    <p class="hint">يُحفظ المفتاح على هذا الجهاز فقط (في متصفح الإضافة)، ولا يُرسل إلا إلى api.anthropic.com.</p>
+  </section>
+
+  <section id="main">
+    <div id="msg-meta" class="meta"></div>
+    <button id="btn-analyze" type="button" class="primary wide">حلّل الرسالة</button>
+    <div id="status" class="status" role="status"></div>
+
+    <div id="result" hidden>
+      <div class="badges">
+        <span id="category" class="badge"></span>
+        <span id="urgency" class="badge muted"></span>
+      </div>
+      <h2>الملخص</h2>
+      <ul id="summary"></ul>
+      <h2>المطلوب منك</h2>
+      <p id="action"></p>
+      <h2>ردود مقترحة</h2>
+      <div id="replies"></div>
+    </div>
+
+    <h2>رد بتوجيهك</h2>
+    <textarea id="instruction" rows="3" placeholder="مثال: وافق على الموعد يوم الأحد الساعة 10، واطلب نسخة من العقد"></textarea>
+    <label class="check"><input id="reply-all" type="checkbox"> رد على الجميع</label>
+    <button id="btn-custom" type="button" class="wide">جهّز الرد</button>
+  </section>
+
+  <footer>الرد يُفتح في نافذة الرد في Outlook ولا يُرسل إلا عندما تضغط إرسال بنفسك.</footer>
+
+  <script src="taskpane.js"></script>
+</body>
+</html>
